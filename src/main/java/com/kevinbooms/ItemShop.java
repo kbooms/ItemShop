@@ -16,6 +16,7 @@ public class ItemShop {
 
     public ItemShop(DataSource dataSource) {
         itemDao = new JdbcItemDao(dataSource);
+        // add the OrderDao when JDBC class is implemented
     }
     public static void main(String[] args) {
 
@@ -31,10 +32,12 @@ public class ItemShop {
 
     public void run() {
         System.out.println("Welcome to the Item Shop");
+
+        // Manual Test: find items by type
         List<Item> itemsMatchingType = itemDao.findItemsByType("MAGIC");
         System.out.println("All items matching the \"Magic\" type: ");
         for (Item item : itemsMatchingType) {
-            System.out.println(item);
+            System.out.println(item.getItemName());
         }
     }
 }

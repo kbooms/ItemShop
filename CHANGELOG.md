@@ -110,3 +110,28 @@ private Item mapRowToItem(SqlRowSet rs) { // rs for rowSet
     }
 ```
 
+#### Implement/Override DAO methods
+Add logic to return a list of items based on the type selected by the user
+- Create an empty List object to compile results to
+- Set a SQL string which retrieves the necessary data to a variable
+- Create a `SqlRowSet` object which takes the `jdbcTemplate`'s `queryForRowSet()` method and access the database
+	+ this query method takes the sql statement, and the calling method's parameter. In this case it is the `itemType`
+- Iterate through the results. Using a while loop based on if our resulting set of Rows has a "next" row. Add each row to the List
+- return the List to the user  
+```
+@Override
+    public List<Item> findItemsByType(String itemType) {
+        List<Item> items = new ArrayList<>();
+        String sql = "SELECT item_id, item_name, item_type, item_value, item_desc " +
+                     "FROM item " +
+                     "WHERE item_type LIKE ?;";
+        itemType = "%" + itemType + "%";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, itemType);
+        while (results.next()) {
+            items.add(mapRowToItem(results));
+        }
+        return items;
+    }
+```
+
+We have a mapping method for returning items, and we have a method which will return items by relevant types. This method is tested in the main class for now. Database connectivity is established.
