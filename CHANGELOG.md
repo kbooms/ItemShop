@@ -28,7 +28,7 @@ Within the `<dependencies>` section of the pom.xml we need to add this dependenc
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-dbcp2</artifactId>
-            <version>2.1.1</version>
+            <version>2.9.0</version>
         </dependency>
     </dependencies>
 ```
@@ -61,5 +61,52 @@ Then set the connection string as the URL, we also need to include credentials. 
 dataSource.setUrl("jdbc:postgresql://localhost:5432/ItemShop");
 dataSource.setUsername("postgres");
 dataSource.setPassword("postgres1");
+```
+  
+We now have a program which can connect to a Database. We also need Data object classes. This is where `JdbcTemplate` comes in. We will create Jdbc Object classes, and use this template there.  
+
+---
+### JDBC and DAO classes
+#### DAO Classes
+- DAO Interfaces have generic methods like a regular interface, some may contain parameters
+- These methods will be implemented and written out within the JDBC Object classes
+- To start this project off the Item and the Order DAO have been written to do the following:  
+	+ Return an item object from the database
+	+ Return items matching a specific type
+	+ Return an order object from the database 
+	+ Return the total gold value of all orders, pending and delivered
+
+#### JDBC Driver
+In order to be able to import the necessary JdbcTemplate class we will need to add the following dependencies to our pom.xml
+```
+<dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+	<version>42.2.12</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-jdbc</artifactId>
+    <version>6.0.6</version>
+</dependency>
+```
+
+This adds the PostgreSQL driver and JDBC driver from the Spring Framework. Now JDBC Object classes can be created for implementing DAO Interface methods.
+
+#### JdbcItemDao
+This class will contain the logic for handling database queries and mapping them to model objects for use within the program. In order for returned queries to be represented in the program they need to be mapped to an object via a mapper method.  
+```
+private Item mapRowToItem(SqlRowSet rs) { // rs for rowSet
+        Item item = new Item();
+        item.setItemId(rs.getLong("item_id"));
+        item.setItemName(rs.getString("item_name"));
+        item.setItemType(rs.getString("item_type"));
+        item.setItemValue(rs.getInt("item_value"));
+        item.setItemDescription(rs.getString("item_desc"));
+        if (rs.wasNull()) {
+            item.setItemId(null);
+        }
+        return item;
+    }
 ```
 

@@ -1,10 +1,13 @@
 package com.kevinbooms;
 
 import com.kevinbooms.dao.ItemDao;
+import com.kevinbooms.dao.JdbcItemDao;
 import com.kevinbooms.dao.OrderDao;
 
+import com.kevinbooms.model.Item;
 import org.apache.commons.dbcp2.BasicDataSource;
 import javax.sql.DataSource;
+import java.util.List;
 
 public class ItemShop {
 
@@ -12,10 +15,9 @@ public class ItemShop {
     private OrderDao orderDao;
 
     public ItemShop(DataSource dataSource) {
-
+        itemDao = new JdbcItemDao(dataSource);
     }
     public static void main(String[] args) {
-
 
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setUrl("jdbc:postgresql://localhost:5432/ItemShop");
@@ -29,5 +31,10 @@ public class ItemShop {
 
     public void run() {
         System.out.println("Welcome to the Item Shop");
+        List<Item> itemsMatchingType = itemDao.findItemsByType("MAGIC");
+        System.out.println("All items matching the \"Magic\" type: ");
+        for (Item item : itemsMatchingType) {
+            System.out.println(item);
+        }
     }
 }

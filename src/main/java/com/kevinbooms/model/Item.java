@@ -5,13 +5,13 @@ package com.kevinbooms.model;
  */
 
 public class Item {
-    private int itemId;
+    private long itemId;
     private String itemName;
     private String itemType;
     private int itemValue;
     private String itemDescription;
 
-    public Item(int itemId, String itemName, String itemType, int itemValue, String itemDescription) {
+    public Item(long itemId, String itemName, String itemType, int itemValue, String itemDescription) {
         this.itemId = itemId;
         this.itemName = itemName;
         this.itemType = itemType;
@@ -19,11 +19,14 @@ public class Item {
         this.itemDescription = itemDescription;
     }
 
-    public int getItemId() {
+    public Item() {
+    }
+
+    public long getItemId() {
         return itemId;
     }
 
-    public void setItemId(int itemId) {
+    public void setItemId(Long itemId) {
         this.itemId = itemId;
     }
 
