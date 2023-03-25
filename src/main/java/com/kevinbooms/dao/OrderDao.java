@@ -16,6 +16,6 @@ public interface OrderDao {
      * @param orderId the id of the sale to retrieve
      * @return a complete Order object
      */
-    Order getOrder(int orderId);
+    Order getOrder(long orderId);
 
 }

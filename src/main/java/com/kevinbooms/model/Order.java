@@ -1,27 +1,25 @@
 package com.kevinbooms.model;
 
-import java.util.Arrays;
-
 public class Order {
     private long orderId;
     private String customer;
     private boolean isDelivered;
     private int totalSale;
-    private String[] itemsCart;
+//    private String[] itemsCart;
 
-    public Order(long orderId, String customer, boolean isDelivered, int totalSale, String[] itemsCart) {
+    public Order() {
         this.orderId = orderId;
         this.customer = customer;
         this.isDelivered = isDelivered;
         this.totalSale = totalSale;
-        this.itemsCart = itemsCart;
+//        this.itemsCart = itemsCart; // needs to be added in Constructor parameter if uncommented
     }
 
     public long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(long orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 
@@ -49,13 +47,13 @@ public class Order {
         this.totalSale = totalSale;
     }
 
-    public String[] getItemsCart() {
-        return itemsCart;
-    }
+//    public String[] getItemsCart() {
+//        return itemsCart;
+//    }
 
-    public void setItemsCart(String[] itemsCart) {
-        this.itemsCart = itemsCart;
-    }
+//    public void setItemsCart(String[] itemsCart) {
+//        this.itemsCart = itemsCart;
+//    }
 
     @Override
     public String toString() {
@@ -64,7 +62,7 @@ public class Order {
                 ", customer='" + customer + '\'' +
                 ", isDelivered=" + isDelivered +
                 ", totalSale=" + totalSale +
-                ", itemsCart=" + Arrays.toString(itemsCart) +
+//                ", itemsCart=" + Arrays.toString(itemsCart) +
                 '}';
     }
 }
