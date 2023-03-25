@@ -3,13 +3,13 @@ package com.kevinbooms.model;
 import java.util.Arrays;
 
 public class Order {
-    private int orderId;
+    private long orderId;
     private String customer;
     private boolean isDelivered;
     private int totalSale;
     private String[] itemsCart;
 
-    public Order(int orderId, String customer, boolean isDelivered, int totalSale, String[] itemsCart) {
+    public Order(long orderId, String customer, boolean isDelivered, int totalSale, String[] itemsCart) {
         this.orderId = orderId;
         this.customer = customer;
         this.isDelivered = isDelivered;
@@ -17,11 +17,11 @@ public class Order {
         this.itemsCart = itemsCart;
     }
 
-    public int getOrderId() {
+    public long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
+    public void setOrderId(long orderId) {
         this.orderId = orderId;
     }
 

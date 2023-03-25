@@ -1,10 +1,10 @@
 package com.kevinbooms;
 
+import com.kevinbooms.model.Item;
 import com.kevinbooms.dao.ItemDao;
 import com.kevinbooms.dao.JdbcItemDao;
 import com.kevinbooms.dao.OrderDao;
 
-import com.kevinbooms.model.Item;
 import org.apache.commons.dbcp2.BasicDataSource;
 import javax.sql.DataSource;
 import java.util.List;
@@ -33,7 +33,13 @@ public class ItemShop {
     public void run() {
         System.out.println("Welcome to the Item Shop");
 
-        // Manual Test: find items by type
+        // Manual Test: Find Item by ID
+        Item itemById = itemDao.getItem(16);
+        System.out.println("ID " + itemById.getItemId() + ") " +itemById.getItemName() +
+                           " - " + itemById.getItemDescription() + ", " +
+                           itemById.getItemValue() + " Gold");
+
+        // Manual Test: Find Items by Type
         List<Item> itemsMatchingType = itemDao.findItemsByType("MAGIC");
         System.out.println("All items matching the \"Magic\" type: ");
         for (Item item : itemsMatchingType) {

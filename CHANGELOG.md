@@ -4,6 +4,22 @@
 All noteable changes to this project will be documented in this file.  
 
 ---
+## 3/25/2023 (cont.)
+
+### Added
+- Changed data type of all "Id" fields to long from int
+- Database Change: Added orders table, populating table with mock data WIP
+- Database Change: Inventory added to item table
+
+### To Do
+- Finish Order JDBC Class
+- Finsih Order table mock data
+
+### Notes
+Need to research how to interpret multiples of one item, and translate an array into data. Also need to have total value calculated based on the cart when inserting the value. There is a way to do this with SQL.
+For the purpose of completing this exercise hard numbering a value with do fine. We simply need the total of the value of any orders.
+
+---
 ## 3/25/2023
 
 ### Project Setup
@@ -15,11 +31,11 @@ All noteable changes to this project will be documented in this file.
 - Item and Order DAO Interfaces created
 
 Before any information can be transferred between the program and the database we need to establish a connection. To do this we do about 5 things:  
--[] Add the apache `commons-dbcp2` dependency to our pom.xml  
--[] Reload the Maven project with this dependency added  
--[] Import the dbcp2 `BasicDataSource` class to the project  
--[] Write a connection string  
--[] Connect the Program to the Database using BasicDataSource  
+- Add the apache `commons-dbcp2` dependency to our pom.xml  
+- Reload the Maven project with this dependency added  
+- Import the dbcp2 `BasicDataSource` class to the project  
+- Write a connection string  
+- Connect the Program to the Database using BasicDataSource  
 
 #### Add the apache commons dbcp2 dependency
 Within the `<dependencies>` section of the pom.xml we need to add this dependency  
@@ -91,7 +107,7 @@ In order to be able to import the necessary JdbcTemplate class we will need to a
 </dependency>
 ```
 
-This adds the PostgreSQL driver and JDBC driver from the Spring Framework. Now JDBC Object classes can be created for implementing DAO Interface methods.
+This adds the PostgreSQL driver and JDBC driver from the Spring Framework. Now JDBC Object classes can be created from Data we retrieve from our PostgreSQL database. We will use this data in the implentation of the DAO methods.
 
 #### JdbcItemDao
 This class will contain the logic for handling database queries and mapping them to model objects for use within the program. In order for returned queries to be represented in the program they need to be mapped to an object via a mapper method.  
@@ -134,4 +150,9 @@ Add logic to return a list of items based on the type selected by the user
     }
 ```
 
-We have a mapping method for returning items, and we have a method which will return items by relevant types. This method is tested in the main class for now. Database connectivity is established.
+We have a mapping method for returning items, and we have a method which will return items by relevant types. This method is tested in the main class for now. Database connectivity is established.  
+  
+### To Do
+- Finish Order JDBC Class
+- Add Customers, Cart, Inventory to model package
+- Add additional Interfaces and JDBC Classes to the dao package

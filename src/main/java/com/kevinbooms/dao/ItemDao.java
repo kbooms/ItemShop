@@ -11,7 +11,7 @@ public interface ItemDao {
      * @param itemId the id of the item to retrieve
      * @return a complete Item object
      */
-    Item getItem(int itemId);
+    Item getItem(long itemId);
 
     /**
      * Get items whose 'type' match the given search string

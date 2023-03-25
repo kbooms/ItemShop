@@ -17,7 +17,7 @@ public class JdbcItemDao implements ItemDao {
     }
 
     @Override
-    public Item getItem(int itemId) {
+    public Item getItem(long itemId) {
         Item item = null;
         String sql = "SELECT item_id, item_name, item_type, item_value, item_desc " +
                      "FROM item " +
