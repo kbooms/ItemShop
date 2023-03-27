@@ -4,16 +4,32 @@
 All noteable changes to this project will be documented in this file.  
 
 ---
+## To Do
+- Finish Order JDBC Class
+- Finsih Order table mock data
+- Supply enum parameters for Inventory and Customer Menu
+- Model Classes: Cart, Inventory, Customer, Purchase
+- Dao Classes: All need work
+- Database Tables need creation and population
+
+---
+## 3/27/2023
+### Added
+- View package with a `MainMenu` enum
+	+ going to try using Enums to navigate through this CLI experience
+- `CustomerMenu` Enum
+- `InventoryMenu` Enum
+
+### Notes
+In the Main `ItemShop` class it's set up to iterate through some enums to test that out. The `MainMenu` enum is initialized with String parameters to supply a description. The other enums have not had this added yet.
+
+---
 ## 3/25/2023 (cont.)
 
 ### Added
 - Changed data type of all "Id" fields to long from int
 - Database Change: Added orders table, populating table with mock data WIP
 - Database Change: Inventory added to item table
-
-### To Do
-- Finish Order JDBC Class
-- Finsih Order table mock data
 
 ### Notes
 Need to research how to interpret multiples of one item, and translate an array into data. Also need to have total value calculated based on the cart when inserting the value. There is a way to do this with SQL.
@@ -152,7 +168,3 @@ Add logic to return a list of items based on the type selected by the user
 
 We have a mapping method for returning items, and we have a method which will return items by relevant types. This method is tested in the main class for now. Database connectivity is established.  
   
-### To Do
-- Finish Order JDBC Class
-- Add Customers, Cart, Inventory to model package
-- Add additional Interfaces and JDBC Classes to the dao package

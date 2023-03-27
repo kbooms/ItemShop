@@ -7,6 +7,9 @@ import com.kevinbooms.dao.JdbcItemDao;
 import com.kevinbooms.dao.OrderDao;
 import com.kevinbooms.model.Order;
 
+import com.kevinbooms.view.CustomersMenu;
+import com.kevinbooms.view.InventoryMenu;
+import com.kevinbooms.view.MainMenu;
 import org.apache.commons.dbcp2.BasicDataSource;
 import javax.sql.DataSource;
 import java.util.List;
@@ -35,8 +38,20 @@ public class ItemShop {
     public void run() {
         System.out.println("Welcome to the Item Shop");
 
+        for (MainMenu option : MainMenu.values()) {
+            System.out.println(option.getOption());
+        }
+
+        for (InventoryMenu option : InventoryMenu.values()) {
+            System.out.println(option);
+        }
+
+        for (CustomersMenu option : CustomersMenu.values()) {
+            System.out.println(option);
+        }
+
         // Manual Test: Get Total Sales
-//        System.out.println("Total Sales: " + orderDao.getTotalGold());
+        System.out.println("Total Sales: " + orderDao.getTotalGold());
 
         // Manual Test: Find Order by ID
 //        Order orderById = orderDao.getOrder(2);
