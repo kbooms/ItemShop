@@ -7,10 +7,15 @@ All noteable changes to this project will be documented in this file.
 ## To Do
 - Finish Order JDBC Class
 - Finsih Order table mock data
-- Supply enum parameters for Inventory and Customer Menu
 - Model Classes: Cart, Inventory, Customer, Purchase
 - Dao Classes: All need work
 - Database Tables need creation and population
+
+---
+## 3/28/2023
+### Added
+- Enum parameters for Inventory and Customer Menu classes
+	+ Supplied constructor and getter for displaying parameters
 
 ---
 ## 3/27/2023

@@ -43,11 +43,11 @@ public class ItemShop {
         }
 
         for (InventoryMenu option : InventoryMenu.values()) {
-            System.out.println(option);
+            System.out.println(option.getOption());
         }
 
         for (CustomersMenu option : CustomersMenu.values()) {
-            System.out.println(option);
+            System.out.println(option.getOption());
         }
 
         // Manual Test: Get Total Sales
