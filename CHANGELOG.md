@@ -11,6 +11,10 @@ All noteable changes to this project will be documented in this file.
 
 ---
 ## 3/31/2023
+### Added
+- findAll method to ItemDao
+	+ currently returning Item Objects as Strings
+
 ### Removed
 - Order Model
 - Order Dao

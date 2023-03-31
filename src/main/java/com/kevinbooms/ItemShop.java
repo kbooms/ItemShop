@@ -38,6 +38,7 @@ public class ItemShop {
             System.out.println(option.getOption());
         }
 
+        System.out.println(itemDao.findAll());
         // Manual Test: Find Items by Type
 //        List<Item> itemsMatchingType = itemDao.findItemsByType("MAGIC");
 //        System.out.println("All items matching the \"Magic\" type: ");

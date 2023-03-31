@@ -17,6 +17,17 @@ public class JdbcItemDao implements ItemDao {
     }
 
     @Override
+    public List<Item> findAll() {
+        List<Item> items = new ArrayList<>();
+        String sql = "SELECT item_id, item_name, item_type, item_value, item_desc " +
+                     "FROM item;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while (results.next()) {
+            items.add(mapRowToItem(results));
+        }
+        return items;
+    }
+    @Override
     public Item getItem(long itemId) {
         Item item = null;
         String sql = "SELECT item_id, item_name, item_type, item_value, item_desc " +

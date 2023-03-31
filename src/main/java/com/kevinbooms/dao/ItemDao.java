@@ -5,6 +5,10 @@ import com.kevinbooms.model.Item;
 import java.util.List;
 
 public interface ItemDao {
+    /**
+     * Get all of the items currently available in the inventory
+     */
+    List<Item> findAll();
 
     /**
      * Get an Item from the datastore based on the given id
