@@ -5,11 +5,19 @@ All noteable changes to this project will be documented in this file.
 
 ---
 ## To Do
-- Finish Order JDBC Class
-- Finsih Order table mock data
-- Model Classes: Cart, Inventory, Customer, Purchase
-- Dao Classes: All need work
-- Database Tables need creation and population
+- Separate Item Table from actual Inventory Table
+- Build Inventory CLI
+	+ CRUD Operations on Inventory Table
+
+---
+## 3/31/2023
+### Removed
+- Order Model
+- Order Dao
+- JdbcOrder Dao
+
+### Notes
+Throwing away the Ordering system for now. I'll reexplore it when I've got the inventory working. It will be reimplemented for scheduling crafting services.
 
 ---
 ## 3/28/2023
