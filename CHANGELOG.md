@@ -10,6 +10,12 @@ All noteable changes to this project will be documented in this file.
 	+ CRUD Operations on Inventory Table
 
 ---
+## 4/1/2023
+### Added
+- Fixed table width issue with printf
+- added `printDivider` method for dividing table header
+
+---
 ## 3/31/2023
 ### Added
 - `findAll()` method to `ItemDao`

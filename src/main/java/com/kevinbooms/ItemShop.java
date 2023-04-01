@@ -38,17 +38,23 @@ public class ItemShop {
 
         // Manual Test: Display all Items on Item table
         List<Item> allItems = itemDao.findAll();
+        printDivider();
         System.out.printf("| %-25s | %-60s | %11s |%n", "ITEMS", "DESCRIPTION", "VALUE ");
-        System.out.printf("%-99s%n", "==========================================================================================================");
+        printDivider();
         for (Item item : allItems) {
             System.out.printf("| %-25s | %-60s | %10sG |%n", item.getItemName(), item.getItemDescription(), item.getItemValue());
         }
+        printDivider();
+    }
 
-        // Manual Test: Find Items by Type
+    public void printDivider() {
+        System.out.printf("==========================================================================================================%n");
+    }
+}
+
+// Manual Test: Find Items by Type
 //        List<Item> itemsMatchingType = itemDao.findItemsByType("MAGIC");
 //        System.out.println("All items matching the \"Magic\" type: ");
 //        for (Item item : itemsMatchingType) {
 //            System.out.println(item.getItemName());
 //        }
-    }
-}
