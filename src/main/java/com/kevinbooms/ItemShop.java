@@ -38,6 +38,8 @@ public class ItemShop {
 
         // Manual Test: Display all Items on Item table
         List<Item> allItems = itemDao.findAll();
+        System.out.printf("| %-25s | %-60s | %11s |%n", "ITEMS", "DESCRIPTION", "VALUE ");
+        System.out.printf("%-99s%n", "==========================================================================================================");
         for (Item item : allItems) {
             System.out.printf("| %-25s | %-60s | %10sG |%n", item.getItemName(), item.getItemDescription(), item.getItemValue());
         }
