@@ -36,6 +36,18 @@ public class ItemShop {
 //            System.out.println(option.getOption());
 //        }
 
+        String term = "pot";
+        List<Item> matchingItems = itemDao.findBySearchTerm(term);
+        for (Item item : matchingItems) {
+            System.out.println(item.getItemName() + ", " + item.getItemDescription() + " - " + item.getItemValue() + "G");
+        }
+    }
+
+    private void printDivider() {
+        System.out.printf("==========================================================================================================%n");
+    }
+
+    private void handleDisplayAllItems() {
         // Manual Test: Display all Items on Item table
         List<Item> allItems = itemDao.findAll();
         printDivider();
@@ -46,11 +58,9 @@ public class ItemShop {
         }
         printDivider();
     }
-
-    public void printDivider() {
-        System.out.printf("==========================================================================================================%n");
-    }
 }
+
+
 
 // Manual Test: Find Items by Type
 //        List<Item> itemsMatchingType = itemDao.findItemsByType("MAGIC");

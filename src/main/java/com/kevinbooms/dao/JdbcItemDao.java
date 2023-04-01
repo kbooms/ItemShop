@@ -41,6 +41,20 @@ public class JdbcItemDao implements ItemDao {
     }
 
     @Override
+    public List<Item> findBySearchTerm(String term) {
+        List<Item> matchingItems = new ArrayList<>();
+        String fixedTerm = "%" + term + "%";
+        String sql = "SELECT item_id, item_name, item_type, item_value, item_desc " +
+                     "FROM item " +
+                     "WHERE item_name ILIKE ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, fixedTerm);
+        while(results.next()) {
+            matchingItems.add(mapRowToItem(results));
+        }
+        return matchingItems;
+    }
+
+    @Override
     public List<Item> findItemsByType(String itemType) {
         List<Item> items = new ArrayList<>();
         String sql = "SELECT item_id, item_name, item_type, item_value, item_desc " +

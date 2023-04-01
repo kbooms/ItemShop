@@ -5,7 +5,10 @@ All noteable changes to this project will be documented in this file.
 
 ---
 ## To Do
+- Build print method to print Table of results in CLI
+	+ Use `handleDisplayAllItems` method as template
 - Separate Item Table from actual Inventory Table
+- Build Main CLI and path out to Inventory
 - Build Inventory CLI
 	+ CRUD Operations on Inventory Table
 
@@ -14,6 +17,8 @@ All noteable changes to this project will be documented in this file.
 ### Added
 - Fixed table width issue with printf
 - added `printDivider` method for dividing table header
+- `findBySearchTerm` method to `ItemDao` and `JdbcItemDao` classes
+	+ initial test of method successful
 
 ---
 ## 3/31/2023

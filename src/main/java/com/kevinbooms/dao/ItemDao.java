@@ -18,6 +18,14 @@ public interface ItemDao {
     Item getItem(long itemId);
 
     /**
+     * Get Items from the datastore based on the given
+     * search term. Should return any item with term in "name"
+     * @param term the search term input by the user
+     * @return a list of items matching the supplied term
+     */
+    List<Item> findBySearchTerm(String term);
+
+    /**
      * Get items whose 'type' match the given search string
      * @param search the string to search for in item types
      * @return a List of Item objects
