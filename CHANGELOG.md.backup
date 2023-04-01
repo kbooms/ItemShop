@@ -22,7 +22,7 @@ All noteable changes to this project will be documented in this file.
 	+ moved to separate handler method `handleFindBySearchTerm`
 - New .sql file for Creating the Inventory table.
 	+ Items table will be an overall collection for data sake
-	+ Inventory will be actual inventory available in stores
+	+ Inventory will be actual inventory available
 
 ---
 ## 3/31/2023

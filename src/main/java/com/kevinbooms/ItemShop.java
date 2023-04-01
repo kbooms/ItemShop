@@ -32,15 +32,11 @@ public class ItemShop {
     public void run() {
         System.out.println("Welcome to the Item Shop");
 
-//        for (MainMenu option : MainMenu.values()) {
-//            System.out.println(option.getOption());
-//        }
-
-        String term = "pot";
-        List<Item> matchingItems = itemDao.findBySearchTerm(term);
-        for (Item item : matchingItems) {
-            System.out.println(item.getItemName() + ", " + item.getItemDescription() + " - " + item.getItemValue() + "G");
+        for (MainMenu option : MainMenu.values()) {
+            System.out.println(option.getOption());
         }
+
+        handleFindBySearchTerm();
     }
 
     private void printDivider() {
@@ -57,6 +53,14 @@ public class ItemShop {
             System.out.printf("| %-25s | %-60s | %10sG |%n", item.getItemName(), item.getItemDescription(), item.getItemValue());
         }
         printDivider();
+    }
+
+    private void handleFindBySearchTerm() {
+        String term = "pot";
+        List<Item> matchingItems = itemDao.findBySearchTerm(term);
+        for (Item item : matchingItems) {
+            System.out.println(item.getItemName() + ", " + item.getItemDescription() + " - " + item.getItemValue() + "G");
+        }
     }
 }
 
