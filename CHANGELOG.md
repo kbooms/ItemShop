@@ -12,8 +12,10 @@ All noteable changes to this project will be documented in this file.
 ---
 ## 3/31/2023
 ### Added
-- findAll method to ItemDao
+- `findAll()` method to `ItemDao`
 	+ currently returning Item Objects as Strings
+- Function for displaying all items in the item table in `ItemShop`
+- Output formatted using `printf` Successful
 
 ### Removed
 - Order Model

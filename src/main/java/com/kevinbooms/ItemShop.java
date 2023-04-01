@@ -3,10 +3,12 @@ package com.kevinbooms;
 import com.kevinbooms.dao.ItemDao;
 import com.kevinbooms.dao.JdbcItemDao;
 
+import com.kevinbooms.model.Item;
 import com.kevinbooms.view.InventoryMenu;
 import com.kevinbooms.view.MainMenu;
 import org.apache.commons.dbcp2.BasicDataSource;
 import javax.sql.DataSource;
+import java.util.List;
 
 public class ItemShop {
 
@@ -30,15 +32,16 @@ public class ItemShop {
     public void run() {
         System.out.println("Welcome to the Item Shop");
 
-        for (MainMenu option : MainMenu.values()) {
-            System.out.println(option.getOption());
+//        for (MainMenu option : MainMenu.values()) {
+//            System.out.println(option.getOption());
+//        }
+
+        // Manual Test: Display all Items on Item table
+        List<Item> allItems = itemDao.findAll();
+        for (Item item : allItems) {
+            System.out.printf("| %-25s | %-60s | %10sG |%n", item.getItemName(), item.getItemDescription(), item.getItemValue());
         }
 
-        for (InventoryMenu option : InventoryMenu.values()) {
-            System.out.println(option.getOption());
-        }
-
-        System.out.println(itemDao.findAll());
         // Manual Test: Find Items by Type
 //        List<Item> itemsMatchingType = itemDao.findItemsByType("MAGIC");
 //        System.out.println("All items matching the \"Magic\" type: ");
