@@ -36,7 +36,7 @@ public class ItemShop {
             System.out.println(option.getOption());
         }
 
-        handleFindBySearchTerm();
+        handleDisplayAllItems();
     }
 
     private void printDivider() {
