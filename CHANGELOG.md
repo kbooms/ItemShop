@@ -24,6 +24,9 @@ All noteable changes to this project will be documented in this file.
 	+ Items table will be an overall collection for data sake
 	+ Inventory will be actual inventory available in stores
 
+### Removed
+- old Order table .sql scripts
+
 ---
 ## 3/31/2023
 ### Added
