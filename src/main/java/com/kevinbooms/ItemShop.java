@@ -10,6 +10,8 @@ import com.kevinbooms.model.Item;
 import com.kevinbooms.view.InventoryMenu;
 import com.kevinbooms.view.MainMenu;
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+
 import javax.sql.DataSource;
 import java.util.List;
 
@@ -45,7 +47,7 @@ public class ItemShop {
     }
 
     private void printDivider() {
-        System.out.printf("==========================================================================================================%n");
+        System.out.printf("====================================================================================%n");
     }
 
     private void handleDisplayAllItems() {
@@ -63,10 +65,10 @@ public class ItemShop {
     private void handleFindAllInventory() {
         List<Inventory> allInventory = inventoryDao.findAll();
         printDivider();
-        System.out.printf("| %-25s | %-16s | %-5s | %-10sG | %n", "ITEMS", "TYPE", "AVAILABLE", "PRICE");
+        System.out.printf("| %-35s | %-16s | %-9s | %-11s | %n", "ITEMS", "TYPE", "AVAILABLE", "PRICE");
         printDivider();
         for (Inventory item : allInventory) {
-            System.out.printf("| %-25s | %-16s | %-5s | %-10sG | %n", item.getInventoryName(),
+            System.out.printf("| %-35s | %-16s | %-9s | %-10sG | %n", item.getInventoryName(),
                     item.getInventoryType(), item.getInventoryAvailable(), item.getInventoryPrice());
         }
         printDivider();

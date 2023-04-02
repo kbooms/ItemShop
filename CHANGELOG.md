@@ -12,6 +12,12 @@ All noteable changes to this project will be documented in this file.
 	+ CRUD Operations on Inventory Table
 
 ---
+## 4/2/2023
+### Added
+- Fixed the column name issue with the Row Mapper
+	+ needed to include the inventory_id field in the SQL query since it was explicitly stated in the mapper
+
+---
 ## 4/1/2023
 ### Added
 - Fixed table width issue with printf

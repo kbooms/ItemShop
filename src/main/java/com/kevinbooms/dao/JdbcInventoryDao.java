@@ -19,7 +19,7 @@ public class JdbcInventoryDao implements InventoryDao {
     @Override
     public List<Inventory> findAll() {
         List<Inventory> allInventory = new ArrayList<>();
-        String sql = "SELECT inventory_name, inventory_type, inventory_available, inventory_price " +
+        String sql = "SELECT inventory_id, inventory_name, inventory_type, inventory_available, inventory_price " +
                      "FROM inventory;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
