@@ -1,8 +1,11 @@
 package com.kevinbooms;
 
+import com.kevinbooms.dao.InventoryDao;
 import com.kevinbooms.dao.ItemDao;
+import com.kevinbooms.dao.JdbcInventoryDao;
 import com.kevinbooms.dao.JdbcItemDao;
 
+import com.kevinbooms.model.Inventory;
 import com.kevinbooms.model.Item;
 import com.kevinbooms.view.InventoryMenu;
 import com.kevinbooms.view.MainMenu;
@@ -13,9 +16,11 @@ import java.util.List;
 public class ItemShop {
 
     private ItemDao itemDao;
+    private InventoryDao inventoryDao;
 
     public ItemShop(DataSource dataSource) {
         itemDao = new JdbcItemDao(dataSource);
+        inventoryDao = new JdbcInventoryDao(dataSource);
     }
     public static void main(String[] args) {
 
@@ -36,7 +41,7 @@ public class ItemShop {
             System.out.println(option.getOption());
         }
 
-        handleDisplayAllItems();
+        handleFindAllInventory();
     }
 
     private void printDivider() {
@@ -55,6 +60,17 @@ public class ItemShop {
         printDivider();
     }
 
+    private void handleFindAllInventory() {
+        List<Inventory> allInventory = inventoryDao.findAll();
+        printDivider();
+        System.out.printf("| %-25s | %-16s | %-5s | %-10sG | %n", "ITEMS", "TYPE", "AVAILABLE", "PRICE");
+        printDivider();
+        for (Inventory item : allInventory) {
+            System.out.printf("| %-25s | %-16s | %-5s | %-10sG | %n", item.getInventoryName(),
+                    item.getInventoryType(), item.getInventoryAvailable(), item.getInventoryPrice());
+        }
+        printDivider();
+    }
     private void handleFindBySearchTerm() {
         String term = "pot";
         List<Item> matchingItems = itemDao.findBySearchTerm(term);

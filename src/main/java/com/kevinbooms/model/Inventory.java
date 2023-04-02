@@ -2,68 +2,72 @@ package com.kevinbooms.model;
 
 public class Inventory {
 
-    private long id;
-    private String name;
-    private String type;
-    private int avaialble;
-    private int price;
+    private long inventoryId;
+    private String inventoryName;
+    private String inventoryType;
+    private int inventoryAvailable;
+    private int inventoryPrice;
+
+    public Inventory(long inventoryId, String inventoryName, String inventoryType, int inventoryAvailable, int inventoryPrice) {
+        this.inventoryId = inventoryId;
+        this.inventoryName = inventoryName;
+        this.inventoryType = inventoryType;
+        this.inventoryAvailable = inventoryAvailable;
+        this.inventoryPrice = inventoryPrice;
+    }
 
     public Inventory() {
-        this.id = id;
-        this.name = name;
-        this.type = type;
-        this.avaialble = avaialble;
-        this.price = price;
+
     }
 
-    public long getId() {
-        return id;
+    public long getInventoryId() {
+        return inventoryId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setInventoryId(Long inventoryId) {
+        this.inventoryId = inventoryId;
     }
 
-    public String getName() {
-        return name;
+    public String getInventoryName() {
+        return inventoryName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setInventoryName(String inventoryName) {
+        this.inventoryName = inventoryName;
     }
 
-    public String getType() {
-        return type;
+    public String getInventoryType() {
+        return inventoryType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setInventoryType(String inventoryType) {
+        this.inventoryType = inventoryType;
     }
 
-    public int getAvaialble() {
-        return avaialble;
+    public int getInventoryAvailable() {
+        return inventoryAvailable;
     }
 
-    public void setAvaialble(int avaialble) {
-        this.avaialble = avaialble;
+    public void setInventoryAvailable(int inventoryAvailable) {
+        this.inventoryAvailable = inventoryAvailable;
     }
 
-    public int getPrice() {
-        return price;
+    public int getInventoryPrice() {
+        return inventoryPrice;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setInventoryPrice(int inventoryPrice) {
+        this.inventoryPrice = inventoryPrice;
     }
 
     @Override
     public String toString() {
         return "Inventory{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", avaialble=" + avaialble +
-                ", price=" + price +
+                "inventoryId=" + inventoryId +
+                ", inventoryName='" + inventoryName + '\'' +
+                ", inventoryType='" + inventoryType + '\'' +
+                ", inventoryAvailable=" + inventoryAvailable +
+                ", inventoryPrice=" + inventoryPrice +
                 '}';
     }
 }

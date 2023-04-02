@@ -25,6 +25,9 @@ All noteable changes to this project will be documented in this file.
 - Inventory Table created and populated in Database
 - `Inventory` model, dao, jdbcdao classes
 
+### Notes
+Invalid Column name seems to be stopping the row mapper for Inventory. Chase this down on the next start.
+
 ### Removed
 - old Order table .sql scripts
 
