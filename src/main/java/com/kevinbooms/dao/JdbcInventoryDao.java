@@ -29,13 +29,28 @@ public class JdbcInventoryDao implements InventoryDao {
     }
 
     @Override
-    public Inventory findById(long id) {
-        return null;
+    public Inventory findById(Long id) {
+        Inventory item;
+        String sql = "SELECT inventory_id, inventory_name, inventory_type, inventory_available, inventory_price " +
+                     "FROM inventory " +
+                     "WHERE inventory_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
+        item = mapRowToInventory(results);
+        return item;
     }
 
     @Override
     public List<Inventory> findByType(String type) {
-        return null;
+        List<Inventory> matchingTypes = new ArrayList<>();
+        String sql = "SELECT inventory_id, inventory_name, inventory_type, inventory_available, inventory_price " +
+                     "FROM inventory " +
+                     "WHERE inventory_type LIKE ?;";
+        type = "%" + type + "%";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, type);
+        while (results.next()) {
+            matchingTypes.add(mapRowToInventory(results));
+        }
+        return matchingTypes;
     }
 
     @Override
@@ -45,7 +60,37 @@ public class JdbcInventoryDao implements InventoryDao {
 
     @Override
     public List<Inventory> findBySearchTerm(String term) {
+        List<Inventory> matchingItems = new ArrayList<>();
+        String sql = "SELECT inventory_id, inventory_name, inventory_type, inventory_available, inventory_price " +
+                "FROM inventory " +
+                "WHERE inventory_name ILIKE ?;";
+        String fixedTerm = "%" + term + "%";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, fixedTerm);
+        while(results.next()) {
+            matchingItems.add(mapRowToInventory(results));
+        }
+        return matchingItems;
+    }
+
+    @Override
+    public Inventory addInventory(Inventory newInventory) {
+        Inventory newItem = new Inventory();
+        String sql = "INSERT INTO inventory (inventory_name, inventory_type, inventory_available, inventory_price) " +
+                     "VALUES (?, ?, ?, ?) " +
+                     "RETURNING inventory_id";
+
+
         return null;
+    }
+
+    @Override
+    public void updateInventory(Inventory updatedInventory) {
+
+    }
+
+    @Override
+    public void deleteInventory(Long id) {
+
     }
 
     private Inventory mapRowToInventory(SqlRowSet rs) { // rs for rowSet

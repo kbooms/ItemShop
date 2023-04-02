@@ -42,9 +42,13 @@ public class ItemShop {
         for (MainMenu option : MainMenu.values()) {
             System.out.println(option.getOption());
         }
+        MainMenu[] menu = MainMenu.values();
 
+        // show all inventory available for now
         handleFindAllInventory();
     }
+
+    // handler methods
 
     private void printDivider() {
         System.out.printf("====================================================================================%n");

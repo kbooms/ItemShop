@@ -16,11 +16,17 @@ public interface InventoryDao {
 
     List<Inventory> findAll();
 
-    Inventory findById(long id);
+    Inventory findById(Long id);
 
     List<Inventory> findByType(String type);
 
     List<Inventory> findByPrice(int price);
 
     List<Inventory> findBySearchTerm(String term);
+
+    Inventory addInventory(Inventory newInventory);
+
+    void updateInventory(Inventory updatedInventory);
+
+    void deleteInventory(Long id);
 }

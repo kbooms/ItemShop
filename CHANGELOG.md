@@ -16,6 +16,9 @@ All noteable changes to this project will be documented in this file.
 ### Added
 - Fixed the column name issue with the Row Mapper
 	+ needed to include the inventory_id field in the SQL query since it was explicitly stated in the mapper
+- Create, Update, and Delete methods for Inventory
+- Several new Read methods for Inventory
+- **IN PROCESS**: Filling out Create, Update, and Delete methods
 
 ---
 ## 4/1/2023
