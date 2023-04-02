@@ -7,7 +7,6 @@ All noteable changes to this project will be documented in this file.
 ## To Do
 - Build print method to print Table of results in CLI
 	+ Use `handleDisplayAllItems` method as template
-- Separate Item Table from actual Inventory Table
 - Build Main CLI and path out to Inventory
 - Build Inventory CLI
 	+ CRUD Operations on Inventory Table
@@ -23,6 +22,8 @@ All noteable changes to this project will be documented in this file.
 - New .sql file for Creating the Inventory table.
 	+ Items table will be an overall collection for data sake
 	+ Inventory will be actual inventory available in stores
+- Inventory Table created and populated in Database
+- `Inventory` model, dao, jdbcdao classes
 
 ### Removed
 - old Order table .sql scripts
