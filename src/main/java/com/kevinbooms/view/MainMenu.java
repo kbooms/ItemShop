@@ -2,8 +2,8 @@ package com.kevinbooms.view;
 
 public enum MainMenu {
     INVENTORY("1) Inventory Management"),
-    CUSTOMERS("2) Customer Database"),
-    ORDERS("3) View Orders"),
+    ORDERS("2) View Orders"),
+    CUSTOMERS("3) Customer Database"),
     EXIT("0) Exit");
 
     private final String option;

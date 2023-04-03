@@ -12,6 +12,13 @@ All noteable changes to this project will be documented in this file.
 	+ CRUD Operations on Inventory Table
 
 ---
+## 4/3/2023
+### Added
+- Create and Delete queries for inventory filled
+- Get User Input Method
+- **IN PROCESS**: starting CLI and Flow Tree from User Input
+
+---
 ## 4/2/2023
 ### Added
 - Fixed the column name issue with the Row Mapper

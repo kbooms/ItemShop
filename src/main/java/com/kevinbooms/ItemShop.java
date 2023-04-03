@@ -14,6 +14,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 import javax.sql.DataSource;
 import java.util.List;
+import java.util.Scanner;
 
 public class ItemShop {
 
@@ -37,22 +38,57 @@ public class ItemShop {
     }
 
     public void run() {
-        System.out.println("Welcome to the Item Shop");
+        displayAppBanner();
 
         for (MainMenu option : MainMenu.values()) {
             System.out.println(option.getOption());
         }
         MainMenu[] menu = MainMenu.values();
-
-        // show all inventory available for now
-        handleFindAllInventory();
+        int choice = Integer.parseInt(getUserInput("Please choose a number ")) - 1;
+        switch (menu[choice]) {
+            case INVENTORY -> {
+                System.out.println("1");
+                break;
+            }
+            case CUSTOMERS -> {
+                System.out.println("2");
+                break;
+            }
+            case ORDERS -> {
+                System.out.println("3");
+                break;
+            }
+            case EXIT -> {
+                System.out.println("0");
+                break;
+            }
+            default -> {
+                break;
+            }
+        }
+//         show all inventory available for now
+//        handleFindAllInventory();
     }
 
-    // handler methods
-
+    // console methods
+    private void displayAppBanner() {
+        System.out.println("_|_|_|    _|                                      _|_|_|  _|                            ");
+        System.out.println("  _|    _|_|_|_|    _|_|    _|_|_|  _|_|        _|        _|_|_|      _|_|    _|_|_|    ");
+        System.out.println("  _|      _|      _|_|_|_|  _|    _|    _|        _|_|    _|    _|  _|    _|  _|    _|  ");
+        System.out.println("  _|      _|      _|        _|    _|    _|            _|  _|    _|  _|    _|  _|    _|  ");
+        System.out.println("_|_|_|      _|_|    _|_|_|  _|    _|    _|      _|_|_|    _|    _|    _|_|    _|_|_|    ");
+        System.out.println("                                                                              _|        ");
+        System.out.println("                                                                              _|        ");
+    }
     private void printDivider() {
         System.out.printf("====================================================================================%n");
     }
+
+    private String getUserInput(String prompt) {
+        System.out.print(prompt + ":: ");
+        return new Scanner(System.in).nextLine();
+    }
+    // handler methods
 
     private void handleDisplayAllItems() {
         // Manual Test: Display all Items on Item table
@@ -72,7 +108,7 @@ public class ItemShop {
         System.out.printf("| %-35s | %-16s | %-9s | %-11s | %n", "ITEMS", "TYPE", "AVAILABLE", "PRICE");
         printDivider();
         for (Inventory item : allInventory) {
-            System.out.printf("| %-35s | %-16s | %-9s | %-10sG | %n", item.getInventoryName(),
+            System.out.printf("| %-35s | %-16s | %9s | %10sG | %n", item.getInventoryName(),
                     item.getInventoryType(), item.getInventoryAvailable(), item.getInventoryPrice());
         }
         printDivider();

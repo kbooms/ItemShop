@@ -74,13 +74,14 @@ public class JdbcInventoryDao implements InventoryDao {
 
     @Override
     public Inventory addInventory(Inventory newInventory) {
-        Inventory newItem = new Inventory();
-        String sql = "INSERT INTO inventory (inventory_name, inventory_type, inventory_available, inventory_price) " +
+        String insSql = "INSERT INTO inventory (inventory_name, inventory_type, inventory_available, inventory_price) " +
                      "VALUES (?, ?, ?, ?) " +
                      "RETURNING inventory_id";
-
-
-        return null;
+        newInventory.setInventoryId(newInventory.getInventoryId());
+        jdbcTemplate.update(insSql, newInventory.getInventoryId(), newInventory.getInventoryName(),
+                            newInventory.getInventoryType(), newInventory.getInventoryAvailable(),
+                            newInventory.getInventoryPrice());
+        return newInventory;
     }
 
     @Override
@@ -90,7 +91,13 @@ public class JdbcInventoryDao implements InventoryDao {
 
     @Override
     public void deleteInventory(Long id) {
-
+        String delSql = "DELETE FROM inventory WHERE inventory_id = ?;";
+        int rowsDeletedCount = jdbcTemplate.update(delSql, id);
+        if (rowsDeletedCount == 1) {
+            System.out.println("*** Inventory Successfully Removed ***");
+        } else {
+            System.out.println("*** Delete Inventory Failed! ***");
+        }
     }
 
     private Inventory mapRowToInventory(SqlRowSet rs) { // rs for rowSet
