@@ -44,14 +44,22 @@ public class ItemShop {
             System.out.println(option.getOption());
         }
         MainMenu[] menu = MainMenu.values();
-        int choice = Integer.parseInt(getUserInput("Please choose a number ")) - 1;
+        int choice;
+        choice = Integer.parseInt(getUserInput("Please choose a number ")) - 1;
         switch (menu[choice]) {
             case INVENTORY -> {
                 System.out.println("1");
+                for (InventoryMenu option : InventoryMenu.values()) {
+                    System.out.println(option.getOption());
+                }
+                // can I make a menu runner from this?
+                InventoryMenu[] inventory = InventoryMenu.values();
+
                 break;
             }
             case CUSTOMERS -> {
                 System.out.println("2");
+                System.out.println(choice);
                 break;
             }
             case ORDERS -> {
@@ -68,6 +76,8 @@ public class ItemShop {
         }
 //         show all inventory available for now
 //        handleFindAllInventory();
+
+
     }
 
     // console methods
